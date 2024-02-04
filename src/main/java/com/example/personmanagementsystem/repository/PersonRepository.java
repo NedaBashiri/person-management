@@ -1,17 +1,22 @@
 package com.example.personmanagementsystem.repository;
 
 import com.example.personmanagementsystem.entity.Person;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Iterator;
 import java.util.List;
 
 public class PersonRepository {
 
+    private static final Logger LOGGER = LogManager.getLogger(PersonRepository.class);
+
     public void insert(Person person) {
         if (Data.list.contains(person)) {
-            System.out.println("Already exists");
+            LOGGER.info(person.getFirstName() + ": Already exists");
         } else {
             Data.list.add(person);
+            LOGGER.info(person.getFirstName() + ": Successfully saved");
         }
     }
 
@@ -20,8 +25,9 @@ public class PersonRepository {
         int index = Data.list.indexOf(person);
         if (index != -1) {
             Data.list.set(index, person);
+            LOGGER.info(person.getFirstName() + ": Successfully updated");
         }else {
-            System.out.println("not found");
+            LOGGER.info("'" + person.getFirstName() + "' not found in the list.");
         }
     }
 
@@ -31,6 +37,7 @@ public class PersonRepository {
             Person person = iterator.next();
             if (person.getNationalCode().equals(nationalCode)) {
                 iterator.remove();
+                LOGGER.info(person.getFirstName()+ ": Successfully deleted.");
                 break;
             }
         }
