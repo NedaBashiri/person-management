@@ -8,5 +8,45 @@
         <error-code>707</error-code>
         <location>/error.jsp</location>
     </error-page>
+    
+    <servlet>
+        <servlet-name>submitPerson</servlet-name>
+        <servlet-class>com.example.personmanagementsystem.controller.SubmitPerson</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>findAllPerson</servlet-name>
+        <servlet-class>com.example.personmanagementsystem.controller.FindAllPerson</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>updatePerson</servlet-name>
+        <servlet-class>com.example.personmanagementsystem.controller.UpdatePerson</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>deletePerson</servlet-name>
+        <servlet-class>com.example.personmanagementsystem.controller.DeletePerson</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>submitPerson</servlet-name>
+        <url-pattern>/person/save.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>findAllPerson</servlet-name>
+        <url-pattern>/person/findAll.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>updatePerson</servlet-name>
+        <url-pattern>/person/update.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>deletePerson</servlet-name>
+        <url-pattern>/person/delete.do</url-pattern>
+    </servlet-mapping>
 
 </web-app>
